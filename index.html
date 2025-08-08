@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Giveaway.Club</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="settings-icon" id="settingsIcon">⚙️</div>
+
+  <h1 id="mainTitle">🎁 YOUR GIVEAWAY 🎁</h1>
+
+  <div id="winnerDisplay">🎯 Winner 🎯</div>
+
+  <button id="drawButton">Pick Winner</button>
+
+  <!-- Settings Modal -->
+  <div id="settingsModal" class="settings-modal">
+    <div class="settings-content">
+      <div class="settings-header">
+        <h2>Settings</h2>
+        <span class="settings-close" id="settingsClose">&times;</span>
+      </div>
+      
+      <div class="settings-tabs">
+        <button class="tab-btn active" data-tab="general">General</button>
+      </div>
+
+      <div class="tab-content" id="general-tab">
+        <h3>Title Settings</h3>
+        <div class="form-group">
+          <label>Title Text:</label>
+          <input type="text" id="titleText" placeholder="YOUR GIVEAWAY">
+        </div>
+        
+        <h3>Entry List</h3>
+        
+        <div class="form-group">
+          <label>
+            Upload CSV File 
+            <span class="tooltip">
+              ?
+              <span class="tooltiptext">Upload a CSV file with headers: Order, Name, Country. Both comma and semicolon separators are supported.</span>
+            </span>
+          </label>
+          <input type="file" id="csvFileInput" accept=".csv" class="file-input">
+          <button type="button" id="clearEntries" class="clear-btn">Clear All Entries</button>
+        </div>
+        
+        <div class="form-group">
+          <button type="button" id="downloadSample" class="download-btn">📥 Download Sample CSV</button>
+        </div>
+        
+        <div class="form-group">
+          <label>
+            Manual Entry (one per line) 
+            <span class="tooltip">
+              ?
+              <span class="tooltiptext">Enter each participant on a new line using format: Order# - Name - Country</span>
+            </span>
+          </label>
+          <textarea id="nameList" placeholder="Add your entries here, one per line&#10;Example:&#10;#001 - John Smith - USA&#10;#002 - Maria Garcia - Spain"></textarea>
+        </div>
+        
+        <div id="entryPreview" class="entry-preview" style="display: none;">
+          <h4>Entry Preview:</h4>
+          <div id="entryCount" class="entry-count"></div>
+          <div id="entryListDisplay" class="entry-list-display"></div>
+        </div>
+        
+        <h3>Theme Settings</h3>
+        <div class="form-group">
+          <div class="theme-toggle">
+            <label class="toggle-label">
+              <span>Dark Mode</span>
+              <div class="toggle-switch">
+                <input type="checkbox" id="darkModeToggle" checked>
+                <span class="toggle-slider"></span>
+              </div>
+              <span>Light Mode</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="settings-footer">
+        <button id="resetSettings" class="reset-btn">Reset to Default</button>
+        <button id="saveSettings" class="save-btn">Save Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+  <script src="settings.js"></script>
+
+</body>
+</html>
